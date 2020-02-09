@@ -1,0 +1,16 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+	<title>VMI</title>
+</head>
+<body>
+	<form method="GET">
+		<input type="text" name="vmi_opt">
+		<input type="submit" class="button" value="Submit">
+	</form>
+{% if vmi %}
+	<h1>{{vmi}}</h1>
+{% endif %}
+</body>
+</html>
