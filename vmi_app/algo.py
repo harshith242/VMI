@@ -5,19 +5,20 @@ Created on Sun Feb  2 16:21:28 2020
 @author: saisr
 """
 
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
 #from sklearn import metrics
-def model_vmi(input_variable):
-    import pandas as pd
-    from sklearn.model_selection import train_test_split
-    from sklearn.linear_model import LinearRegression
+def model1(input_variable):
     inp =input_variable
     
-    car=['A','B','C','D','E','F']
-    car1=['a','b','c','d','e','f']
+    car=['nano','hondacity','volkswagen','hyundai','skoda','maruti']
+    
     
     A=[]
-    list=['C:/Users/Harshith/Dev/cfehome/django_projects/vmi/vmi_app/1_Nano_mean.csv','C:/Users/Harshith/Dev/cfehome/django_projects/vmi/vmi_app/2_New_Honda_city.csv','C:/Users/Harshith/Dev/cfehome/django_projects/vmi/vmi_app/4_Volkswagen_Vento.csv',
-          'C:/Users/Harshith/Dev/cfehome/django_projects/vmi/vmi_app/6_hyundai_Verna.csv','C:/Users/Harshith/Dev/cfehome/django_projects/vmi/vmi_app/8_Skoda_Rapid.csv','C:/Users/Harshith/Dev/cfehome/django_projects/vmi/vmi_app/11_Maruti_swift.csv']
+    list=['1_Nano_mean.csv','2_New_Honda_city.csv','4_Volkswagen_Vento.csv',
+          '6_hyundai_Verna.csv','8_Skoda_Rapid.csv','11_Maruti_swift.csv']
     
     for k in range(0,len(list)):
         data=pd.read_csv(list[k])
@@ -43,7 +44,7 @@ def model_vmi(input_variable):
         q=q.tolist()
         #print cars[k],q
         A.append(q[0])
-   
+    print (A)
     least=min(A)
     A=[(i/least) for i in A]
     A=[i*5 for i in A]
@@ -53,12 +54,22 @@ def model_vmi(input_variable):
     flag=0
     
     for p in range(0,len(car)):
-        if(inp== car[p] or inp==car1[p]):
+        if(inp== car[p]):
             return (A[p])
             flag=1
             
     if(flag==0):
-        p="Not Found"
-        return (p)
+        return("Not Found")
             
         
+def model_vmi(input_variable):
+    A=[5,6.2,9.3,8.5,7.7,9.4]
+    car=['nano','hondacity','volkswagen','hyundai','skoda','maruti']
+    flag=0
+    for i in range(0,len(A)):
+        if(car[i]==input_variable):
+            flag=1
+            return(A[i])
+            break
+    if(flag==0):
+        return("Not Found")

@@ -4,6 +4,9 @@ from vmi_app.algo import model_vmi
 
 # Create your views here.
 def index(request):
+	import sys
+	print("Python version")
+	print (sys.version)
 	return render(request,'index.html')
 
 def shop(request):
