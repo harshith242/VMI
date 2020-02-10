@@ -6,11 +6,12 @@ Created on Sun Feb  2 16:21:28 2020
 """
 
 
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+
 #from sklearn import metrics
 def model1(input_variable):
+    import pandas as pd
+    from sklearn.model_selection import train_test_split
+    from sklearn.linear_model import LinearRegression
     inp =input_variable
     
     car=['nano','hondacity','volkswagen','hyundai','skoda','maruti']
